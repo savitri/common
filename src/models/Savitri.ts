@@ -6,7 +6,37 @@ export interface IEdition extends DbTable {
     title: string;
     desc?: string;
     year: number;
-    toc: any;
+    toc: TOC;
+}
+
+export interface TOC {
+    parts: PartTOC[];
+}
+
+export interface PartTOC {
+    no: number;
+    heading: string;
+    books: BookTOC[];
+}
+
+export interface BookTOC {
+    no: number;
+    heading: string;
+    title: string;
+    cantos: CantoTOC[];
+}
+
+export interface CantoTOC {
+    no: number;
+    heading: string;
+    title: string;
+    sections: SectionTOC[];
+}
+
+export interface SectionTOC {
+    no: number;
+    heading: string;
+    running_no: string;
 }
 
 export class Edition extends DbModel<IEdition> {
