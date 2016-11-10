@@ -17,6 +17,7 @@ export interface IPost extends DbTable {
 }
 export declare class Post extends DbModel<IPost> {
     static table: string;
+    static getPostsURL: (blogSlug: string, postSlug?: string | undefined) => string;
     static schema: SchemaType;
     readonly slug: string;
 }

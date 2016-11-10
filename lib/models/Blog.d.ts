@@ -9,5 +9,6 @@ export interface IBlog extends DbTable {
 }
 export declare class Blog extends DbModel<IBlog> {
     static table: string;
+    static getBlogsURL: (slug?: string | undefined) => string;
     static schema: SchemaType;
 }

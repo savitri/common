@@ -7,6 +7,7 @@ export interface IEdition extends DbTable {
 }
 export declare class Edition extends DbModel<IEdition> {
     static table: string;
+    static getEditionsURL: (year?: number | undefined) => string;
     static schema: SchemaType;
 }
 export interface IPart extends DbTable {
@@ -49,6 +50,7 @@ export interface ISection extends DbTable {
 }
 export declare class Section extends DbModel<ISection> {
     static table: string;
+    static getSectionsURL: (book: number, canto: number, section: number) => string;
     static schema: SchemaType;
 }
 export interface ISentence extends DbTable {
@@ -60,5 +62,6 @@ export interface ISentence extends DbTable {
 }
 export declare class Sentence extends DbModel<ISentence> {
     static table: string;
+    static getSectionsURL: (book: number, canto: number, section: number, sentence: number) => string;
     static schema: SchemaType;
 }
