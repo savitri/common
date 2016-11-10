@@ -26,6 +26,10 @@ export interface IPost extends DbTable {
 
 export class Post extends DbModel<IPost> {
     static table = "posts";
+
+    static getPostsURL = (blogSlug: string, postSlug?: string) =>
+        `/blogs/${blogSlug}/posts` + (postSlug ? `/${postSlug}` : "");
+
     static schema: SchemaType = object().keys({
         id: number(),
         blog_id: number().required(),

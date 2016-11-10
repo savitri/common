@@ -14,6 +14,8 @@ export interface IBlog extends DbTable {
 export class Blog extends DbModel<IBlog> {
     static table = "blogs";
 
+    static getBlogsURL = (slug?: string) => "/blogs" + (slug ? `/${slug}` : "");
+
     static schema: SchemaType = object().keys({
         title: string().required(),
         slug: string().required(),

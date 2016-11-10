@@ -11,6 +11,7 @@ export interface IEdition extends DbTable {
 
 export class Edition extends DbModel<IEdition> {
     static table = "editions";
+    static getEditionsURL = (year?: number) => "/savitri/editions" + (year ? `/${year}` : "");
 
     static schema: SchemaType = object().keys({
         title: string().required(),
@@ -87,6 +88,9 @@ export interface ISection extends DbTable {
 export class Section extends DbModel<ISection> {
     static table = "sections";
 
+    static getSectionsURL = (book: number, canto: number, section: number) =>
+        `/savitri/books/${book}/cantos/${canto}/sections/${section}`;
+
     static schema: SchemaType = object().keys({
         no: number().required(),
         running_no: number().required(),
@@ -105,6 +109,9 @@ export interface ISentence extends DbTable {
 
 export class Sentence extends DbModel<ISentence> {
     static table = "sentences";
+
+    static getSectionsURL = (book: number, canto: number, section: number, sentence: number) =>
+        `${Section.getSectionsURL(book, section, canto)}/sentences/${sentence}`;
 
     static schema: SchemaType = object().keys({
         no: number().required(),
