@@ -1,7 +1,9 @@
 {
   "name": "savitri-shared",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "lib/index",
+  "typings": "lib/index",
+  "private": true,
   "repository": {
     "url": "https://github.com/savitri/shared.git",
     "type": "git"
