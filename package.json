@@ -1,6 +1,6 @@
 {
   "name": "savitri-shared",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "lib/index",
   "typings": "lib/index",
   "private": true,
