@@ -75,7 +75,7 @@ export interface ISection extends DbTable {
 }
 export declare class Section extends DbModel<ISection> {
     static table: string;
-    static getSectionsURL: (book: number, canto: number, section: number) => string;
+    static getSectionsURL: (book: number, canto: number, section: number, year?: number | undefined) => string;
     static schema: SchemaType;
 }
 export interface ISentence extends DbTable {
@@ -87,6 +87,6 @@ export interface ISentence extends DbTable {
 }
 export declare class Sentence extends DbModel<ISentence> {
     static table: string;
-    static getSectionsURL: (book: number, canto: number, section: number, sentence: number) => string;
+    static getSectionsURL: (book: number, canto: number, section: number, sentence: number, year?: number | undefined) => string;
     static schema: SchemaType;
 }
