@@ -16,6 +16,9 @@ export class Blog extends DbModel<IBlog> {
 
     static getBlogsURL = (slug?: string) => "/blogs" + (slug ? `/${slug}` : "");
 
+    static getPostsURL = (blogSlug: string, page?: number) =>
+        `/blogs/${blogSlug}/posts` + (page ? `?page=${page}` : "");
+
     static schema: SchemaType = object().keys({
         title: string().required(),
         slug: string().required(),
