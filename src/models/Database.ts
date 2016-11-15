@@ -35,8 +35,8 @@ export class DbModel<T> {
 
 export interface DbTable {
     id?: number;
-    created_at?: Date;
-    published_at?: Date;
-    updated_at?: Date;
-    deleted_at?: Date;
+    created_at?: string;
+    published_at?: string;
+    updated_at?: string;
+    deleted_at?: string;
 }
