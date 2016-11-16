@@ -21,6 +21,8 @@ export interface IPost extends DbTable {
     comments?: number[];
     tags: number[];
     recommendations?: number[];
+    created_at: string;
+    published_at: string;
     status: "draft" | "scheduled" | "published" | "deleted";
 }
 
