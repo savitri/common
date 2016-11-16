@@ -11,10 +11,9 @@ export interface IPost extends DbTable {
     script: "ro" | "dv" | "ar";
     series_id?: number;
     comments?: number[];
-    tags: number[];
+    tags?: number[];
     recommendations?: number[];
     created_at: string;
-    published_at: string;
     status: "draft" | "scheduled" | "published" | "deleted";
 }
 export declare class Post extends DbModel<IPost> {

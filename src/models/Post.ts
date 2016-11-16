@@ -1,4 +1,4 @@
-import { string, number, object, date, bool } from "joi";
+import { string, number, object, date, array } from "joi";
 import * as getSlug from "speakingurl";
 import * as Sanscript from "sanscript";
 import * as Diacritics from "diacritics";
@@ -19,10 +19,9 @@ export interface IPost extends DbTable {
     script: "ro" | "dv" | "ar";
     series_id?: number;
     comments?: number[];
-    tags: number[];
+    tags?: number[];
     recommendations?: number[];
     created_at: string;
-    published_at: string;
     status: "draft" | "scheduled" | "published" | "deleted";
 }
 
@@ -35,22 +34,23 @@ export class Post extends DbModel<IPost> {
     static schema: SchemaType = object().keys({
         id: number(),
         blog_id: number().required(),
-        title: string().required(),
-        content: string().required(),
-        created_at: date().default(new Date()),
-        updated_at: date().default(new Date()),
-        md_content: string(),
-        excerpt: string(),
-        url: string(),
-        published_at: date(),
-        draft: bool(),
-        series_title: string(),
-        subtitle: string(),
-        show_excerpt: string(),
-        author_id: number().required(),
-        featured: bool(),
-        deleted_at: date(),
         number: number(),
+        author_id: number().required(),
+        slug: string().required(),
+        title: string().required(),
+        subtitle: string(),
+        txt: string().required(),
+        excerpt: string(),
+        script: string().default("ro"),
+        series_id: number(),
+        comments: array(),
+        tags: array(),
+        recommendations: array(),
+        status: string().default("draft"),
+        created_at: date().required(),
+        published_at: date(),
+        updated_at: date(),
+        deleted_at: date()
     });
 
     get slug() {
